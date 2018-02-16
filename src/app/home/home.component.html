@@ -1,10 +1,41 @@
 <div class="container-fluid">
   <div class="jumbotron text-center">
     <h1>
-      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>
+      <img class="logo" src="assets/ngx-rocket-logo.png" alt="anthem beer logo"/>
       <span translate>Hello world !</span>
     </h1>
     <app-loader [isLoading]="isLoading"></app-loader>
-    <q [hidden]="isLoading">{{quote}}</q>
+      <nav class="navbar">
+        <input class="form-control" type="text" name="search" placeholder="start typing to narrow it down..."
+        [(ngModel)]="filter">      
+      </nav>
   </div>
+  <table class="table table-condensed table-responsive table-striped">
+    <thead>
+      <tr class="row-fluid">
+        <th class="span2" (click)="sort('name')">Name
+        	<i class="fas fa-sort" *ngIf="key =='name'" [ngClass]="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+        </th>
+        <th class="span2" (click)="sort('style_name')">Style
+        	<i class="fas fa-sort" *ngIf="key =='style_name'" [ngClass]="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+        </th>
+        <th class="span2" (click)="sort('abv')">ABV
+        	<i class="fas fa-sort" *ngIf="key =='abv'" [ngClass]="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+        </th>
+        <th class="span5">Description</th>
+        <th class="span1">b_id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-fluid" *ngFor="let beer of beers | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+        <td class="span2">{{beer.name}}</td>
+        <td class="span2">{{beer.style_name}}</td>
+        <td class="span2">{{beer.abv | slice:0:4}}</td>
+        <td class="span5">{{beer.descript}}</td>
+        <td class="span1">{{beer.brewery_id}}</td>
+      </tr>
+    </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
+
 </div>

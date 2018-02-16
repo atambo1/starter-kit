@@ -40,9 +40,9 @@ describe('QuoteService', () => {
   });
 
   describe('getRandomQuote', () => {
-    it('should return a random Chuck Norris quote', fakeAsync(() => {
+    it('should return', fakeAsync(() => {
       // Arrange
-      const mockQuote = 'a random quote';
+      const mockQuote = 'some';
       const response = new Response(new ResponseOptions({
         body: { value: mockQuote }
       }));

@@ -5,8 +5,8 @@ import { HttpModule } from '@angular/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { environment } from '@env/environment';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
     TranslateModule.forRoot(),
     NgbModule.forRoot(),
+    AngularFontAwesomeModule,
     CoreModule,
     SharedModule,
     HomeModule,
