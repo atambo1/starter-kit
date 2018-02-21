@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { QuoteService } from './quote.service';
-import { BreweriesService } from '../breweries.service';
+//import { BreweriesService } from '../breweries.service';
 import { Http, Response } from '@angular/http';
 
 @Component({
@@ -28,11 +28,7 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
     this.quoteService.getRandomQuote({ category: 'explicit' })
       .pipe(finalize(() => { this.isLoading = false; }))
-      .subscribe((quotes: Array<string>) => { this.beers = quotes; });
-
-    this.breweriesService.getBreweries()
-      .pipe(finalize())
-      .subscribe((breweries: Array<string>) => { this.breweries = breweries; });
-  }
+      .subscribe((quotes: string) => { this.beers = quotes; });
+   }
 
 }
