@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
-  isLoading: boolean;
+
   p: number = 1;
   constructor(private quoteService: QuoteService) { }
 
