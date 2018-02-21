@@ -12,8 +12,7 @@ import { Http, Response } from '@angular/http';
 
 export class HomeComponent implements OnInit {
   title = 'mmmmm... beers';
-  beers: string;
-  isLoading: boolean;
+  
 //sorting
   key: string = 'name'; //set default
   reverse: boolean = false;
@@ -21,7 +20,8 @@ export class HomeComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
-
+  beers: string;
+  isLoading: boolean;
   p: number = 1;
   constructor(private quoteService: QuoteService) { }
 
