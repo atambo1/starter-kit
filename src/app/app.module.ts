@@ -13,6 +13,7 @@ import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
+import { OrderModule } from 'ngx-order-pipe'; 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     NgbModule.forRoot(),
     AngularFontAwesomeModule,
     Ng2SearchPipeModule, 
+    OrderModule, 
     CoreModule,
     SharedModule,
     HomeModule,

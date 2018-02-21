@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
+  filter: object;
   beers: string;
   isLoading: boolean;
   p: number = 1;
