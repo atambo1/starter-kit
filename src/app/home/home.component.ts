@@ -12,7 +12,8 @@ import { Http, Response } from '@angular/http';
 
 export class HomeComponent implements OnInit {
   title = 'mmmmm... beers';
-  
+  beers: string;
+  isLoading: boolean;
 //sorting
   key: string = 'name'; //set default
   reverse: boolean = false;
