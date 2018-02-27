@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { QuoteService } from './quote.service';
-//import { BreweriesService } from '../breweries.service';
 import { Http, Response } from '@angular/http';
 
 @Component({
@@ -21,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.reverse = !this.reverse;
   }
   filter: object;
+  breweries: string;
   beers: string;
   isLoading: boolean;
   p: number = 1;
@@ -31,6 +31,9 @@ export class HomeComponent implements OnInit {
     this.quoteService.getRandomQuote({ category: 'explicit' })
       .pipe(finalize(() => { this.isLoading = false; }))
       .subscribe((quotes: string) => { this.beers = quotes; });
+
+    this.quoteService.getBreweryList()
+        .subscribe((breweries: string) => { this.breweries = breweries;})
    }
 
 }

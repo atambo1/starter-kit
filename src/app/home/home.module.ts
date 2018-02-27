@@ -10,7 +10,6 @@ import { SharedModule } from '@app/shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
-import { BreweriesService } from '../breweries.service';
 
 @NgModule({
   imports: [
@@ -28,8 +27,7 @@ import { BreweriesService } from '../breweries.service';
     HomeComponent
   ],
   providers: [
-    QuoteService,
-    BreweriesService
+    QuoteService
   ]
 })
 export class HomeModule { }

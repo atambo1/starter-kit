@@ -37,5 +37,27 @@
     </tbody>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table>
-
+  <table class="table table-condensed table-responsive table-striped">
+    <thead>
+      <tr class="row-fluid">
+        <th class="span2" (click)="sort('name')">Name
+          <i class="fas fa-sort" *ngIf="key =='name'" [ngClass]="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+        </th>
+        <th class="span6" (click)="sort('descript')">Style
+          <i class="fas fa-sort" *ngIf="key =='style_name'" [ngClass]="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+        </th>
+        <th class="span1" (click)="sort('brewery_id')">Brewery ID
+          <i class="fas fa-sort" *ngIf="key =='abv'" [ngClass]="{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-fluid" *ngFor="let brewery of breweries | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+        <td class="span2">{{brewery.name}}</td>
+        <td class="span6">{{brewery.descript}}</td>
+        <td class="span1">{{brewery.id}}</td>
+      </tr>
+    </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
 </div>

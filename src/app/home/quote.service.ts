@@ -5,7 +5,8 @@ import { of } from 'rxjs/observable/of';
 import { map, catchError } from 'rxjs/operators';
 
 const routes = {
-  quote: (c: RandomQuoteContext) => `/beers.json`
+  quote: (c: RandomQuoteContext) => `/beers.json`,
+  brewery: ()=> `/breweries.json`
 };
 
 export interface RandomQuoteContext {
@@ -24,6 +25,14 @@ export class QuoteService {
         map((res: Response) => res.json()),
         catchError(() => of('Urgent, could not get beers!! :-('))
       );
+  }
+
+  getBreweryList(): Observable<string> {
+    return this.http.get(routes.brewery(), {cache: true})
+      .pipe(
+        map((res: Response) => res.json()),
+        catchError(() => of (`Shit, we couldn't find the breweries :-()`))
+        );
   }
 
 }
