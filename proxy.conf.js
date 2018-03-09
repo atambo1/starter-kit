@@ -12,7 +12,7 @@ const proxyConfig = [
   {
     context: '/api',
     pathRewrite: { '^/api': '/assets' },
-    target: 'https://beeropolous.netlify.com',
+    target: 'http://localhost:4200',
     changeOrigin: false,
     secure: false
   }
